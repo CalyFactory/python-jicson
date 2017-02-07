@@ -1,21 +1,19 @@
-import json
-import sys
-from urllib.request import urlopen
+from urllib.request import Request, urlopen
 import io
-
-sys.setrecursionlimit(10000)
 
 class StreamObject:
 
-    def __init__(self, type, uri = None, auth = None, filePath = None, text = None):
+    def __init__(self, type, url = None, auth = None, filePath = None, text = None):
         self.type = type 
-        self.uri = uri 
+        self.url = url 
         self.auth = auth
         self.filePath = filePath
         self.text = text
         
         if self.type == "web":
-            self.response = urlopen(uri)    
+            request = Request(url)
+            request.add_header('Authorization', 'Basic '+auth)
+            self.response = urlopen(request)    
         elif self.type == "file":
             self.file = open(filePath)
         elif self.type == "text":
@@ -36,26 +34,27 @@ class StreamObject:
         line = line.rstrip('\n')
         return line
 
-def fromWeb(icsFileUrl):
+def fromWeb(icsFileUrl, auth = None):
     streamObject = StreamObject(
         type = "web",
-        uri = icsFileUrl
+        url = icsFileUrl,
+        auth = auth
     )
-    return parseChild({}, streamObject)
+    return (parseChild({}, streamObject))
 
 def fromFile(icsFilePath):
     streamObject = StreamObject(
         type = "file",
         filePath = icsFilePath
     )
-    return parseChild({}, streamObject)
+    return (parseChild({}, streamObject))
 
 def fromText(icsFileText):
     streamObject = StreamObject(
         type = "text",
         text = icsFileText
     )
-    return parseChild({}, streamObject)
+    return (parseChild({}, streamObject))
 
 def parseChild(json, fileObject):
     while True:
