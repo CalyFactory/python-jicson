@@ -1,22 +1,67 @@
 import json
 import sys
+from urllib.request import urlopen
+import io
+
 sys.setrecursionlimit(10000)
 
+class StreamObject:
+
+    def __init__(self, type, uri = None, auth = None, filePath = None, text = None):
+        self.type = type 
+        self.uri = uri 
+        self.auth = auth
+        self.filePath = filePath
+        self.text = text
+        
+        if self.type == "web":
+            self.response = urlopen(uri)    
+        elif self.type == "file":
+            self.file = open(filePath)
+        elif self.type == "text":
+            self.buf = io.StringIO(text)
+        else:
+            self.buf = io.StringIO(text)
+    
+    def readline(self):
+        if self.type == "web":
+            line = (self.response.readline().decode('utf-8'))
+        elif self.type == "file":
+            line = (self.file.readline())
+        elif self.type == "text":
+            line = (self.buf.readline())
+        else:
+            line = (self.buf.readline())
+        
+        line = line.rstrip('\n')
+        return line
 
 def fromWeb(icsFileUrl):
-    return 'hi'
+    streamObject = StreamObject(
+        type = "web",
+        uri = icsFileUrl
+    )
+    return parseChild({}, streamObject)
 
-def fromFile2(icsFilePath):
-    with open(icsFilePath) as fileObject:
-        json = read({}, fileObject)
-    print(json)
-    return json
-def read(json, fileObject):
+def fromFile(icsFilePath):
+    streamObject = StreamObject(
+        type = "file",
+        filePath = icsFilePath
+    )
+    return parseChild({}, streamObject)
+
+def fromText(icsFileText):
+    streamObject = StreamObject(
+        type = "text",
+        text = icsFileText
+    )
+    return parseChild({}, streamObject)
+
+def parseChild(json, fileObject):
     while True:
         line = fileObject.readline()
         if not line: 
             return json
-
 
         line = line.rstrip('\n')
 
@@ -28,17 +73,16 @@ def read(json, fileObject):
         key = line[:separator]
         value = line[separator+1:]
 
-
-#        print(json)
         if key == "BEGIN":
             if value not in json:
                 json[value] = []
-            json[value].append(read({}, fileObject))
+            json[value].append(parseChild({}, fileObject))
         elif key == "END":
             return json
         else:
             json[key] = value
 
+"""
 
 def fromFile(icsFilePath):
 
@@ -98,6 +142,4 @@ def fromFile(icsFilePath):
     f.write(str(json))
     f.close()
     return 'hi'
-
-def fromText(icsFileText):
-    return 'hi'
+"""
