@@ -99,7 +99,8 @@ END:VCALENDAR
 
 this ics file to above json
 
-```json {
+```json 
+{
     "VCALENDAR": [
         {
             "PRODID": "-//Google Inc//Google Calendar 70.9054//EN",
