@@ -3,12 +3,10 @@ def fromWeb(icsFileUrl):
     return 'hi'
 
 def fromFile(icsFilePath):
-    f = open(icsFilePath, 'r')
-    while True:
-        line = f.readline()
-        if not line: break
-        print(line)
-    f.close()
+    with open(icsFilePath) as fileObject:
+        for line in fileObject:
+            line = line.rstrip('\n')
+            print(line)
     return 'hi'
 
 def fromText(icsFileText):

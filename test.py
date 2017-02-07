@@ -2,5 +2,5 @@ import icson
 
 
 
-json = icson.fromFile('hi')
+json = icson.fromFile('./basic.ics')
 print(json)
