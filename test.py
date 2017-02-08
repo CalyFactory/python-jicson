@@ -1,4 +1,6 @@
-import icson
+import jicson
+import json 
 
-json = icson.fromFile('./basic2.ics')
-print(json)
+result = jicson.fromFile('./basic.ics')
+print(result)
+print(json.dumps(result))
