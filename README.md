@@ -121,7 +121,7 @@ this ics file to above json
                     "LOCATION": "",
                     "SEQUENCE": "0",
                     "STATUS": "CONFIRMED",
-                    "SUMMARY": "약속1",
+                    "SUMMARY": "약속1",
                     "TRANSP": "OPAQUE",
                     "X-APPLE-TRAVEL-ADVISORY-BEHAVIOR": "AUTOMATIC"
                 },
@@ -136,7 +136,7 @@ this ics file to above json
                     "LOCATION": "",
                     "SEQUENCE": "0",
                     "STATUS": "CONFIRMED",
-                    "SUMMARY": "약속2",
+                    "SUMMARY": "약속2",
                     "TRANSP": "OPAQUE",
                     "X-APPLE-TRAVEL-ADVISORY-BEHAVIOR": "AUTOMATIC"
                 },
@@ -151,7 +151,7 @@ this ics file to above json
                     "LOCATION": "",
                     "SEQUENCE": "0",
                     "STATUS": "CONFIRMED",
-                    "SUMMARY": "약속3",
+                    "SUMMARY": "약속3",
                     "TRANSP": "OPAQUE",
                     "X-APPLE-TRAVEL-ADVISORY-BEHAVIOR": "AUTOMATIC"
                 },
