@@ -4,19 +4,19 @@ python ics to json lib
 Basic Useage
 ---------
 ```python
-import icson
+import jicson
 
 #read from file
-json = icson.fromFile('./basic.ics')
-print(json)
+result = jicson.fromFile('./basic.ics')
+print(result)
 
 #read from text
-json = icson.fromText(icsText)
-print(json)
+result = jicson.fromText(icsText)
+print(result)
 
 #read from web
-json = icson.fromFile(url, auth = base64_authtoken)
-print(json)
+result = jicson.fromFile(url, auth = base64_authtoken)
+print(result)
 
 ```
 
@@ -121,7 +121,7 @@ this ics file to above json
                     "LOCATION": "",
                     "SEQUENCE": "0",
                     "STATUS": "CONFIRMED",
-                    "SUMMARY": "종현이형",
+                    "SUMMARY": "약속1",
                     "TRANSP": "OPAQUE",
                     "X-APPLE-TRAVEL-ADVISORY-BEHAVIOR": "AUTOMATIC"
                 },
@@ -136,7 +136,7 @@ this ics file to above json
                     "LOCATION": "",
                     "SEQUENCE": "0",
                     "STATUS": "CONFIRMED",
-                    "SUMMARY": "순호집방문",
+                    "SUMMARY": "약속2",
                     "TRANSP": "OPAQUE",
                     "X-APPLE-TRAVEL-ADVISORY-BEHAVIOR": "AUTOMATIC"
                 },
@@ -151,7 +151,7 @@ this ics file to above json
                     "LOCATION": "",
                     "SEQUENCE": "0",
                     "STATUS": "CONFIRMED",
-                    "SUMMARY": "김광호 강남",
+                    "SUMMARY": "약속3",
                     "TRANSP": "OPAQUE",
                     "X-APPLE-TRAVEL-ADVISORY-BEHAVIOR": "AUTOMATIC"
                 },
