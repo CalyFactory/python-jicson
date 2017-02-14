@@ -15,7 +15,7 @@ result = jicson.fromText(icsText)
 print(result)
 
 #read from web
-result = jicson.fromFile(url, auth = base64_authtoken)
+result = jicson.fromWeb(url, auth = base64_authtoken)
 print(result)
 
 ```
