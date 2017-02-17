@@ -1,6 +1,8 @@
 # Python ICS to JSon library
 python ics to json lib
 
+[Python Version](https://img.shields.io/pypi/pyversions/jicson.svg)
+
 How to install?
 ---------
 ```
