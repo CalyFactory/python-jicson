@@ -1,6 +1,12 @@
 # Python ICS to JSon library
 python ics to json lib
 
+How to install?
+---------
+```
+pip3 install jicson
+```
+
 Basic Useage
 ---------
 ```python
