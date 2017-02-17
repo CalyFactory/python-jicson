@@ -4,7 +4,7 @@ python ics to json lib
 How to install?
 ---------
 ```
-pip3 install jicson
+$ pip3 install jicson
 ```
 
 Basic Useage
