@@ -62,7 +62,7 @@ def parseChild(json, fileObject):
         if not line: 
             return json
 
-        line = line.rstrip('\n')
+        line = line.rstrip('\n\r')
 
         separator = line.find(":")
         
