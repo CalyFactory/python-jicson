@@ -20,7 +20,7 @@ if path.exists(readme_path):
 
 setup(
     name    = 'jicson', 
-    version = '1.0.1', 
+    version = '1.0.2', 
     packages=['jicson'],
     author = 'jspiner',
     author_email = 'jspiner@naver.com', 
